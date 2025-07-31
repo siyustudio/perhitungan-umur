@@ -18,22 +18,23 @@ function cek() {
     if (inputTahun && inputTahun <= tahunSekarang && inputTahun >= 1800) {
         let usia = tahunSekarang - inputTahun;
         keterangan.innerText = `${usia} tahun`;
-        keterangan.classList.remove("teks-error"); // hilangkan warna merah kalau valid
+        keterangan.classList.remove("teks-error");
         hasilUmur.style.display = "block";
     } else {
         keterangan.innerText = `Tahun lahir anda tidak valid!`;
-        keterangan.classList.add("teks-error"); // tambahkan warna merah
+        keterangan.classList.add("teks-error");
         hasilUmur.style.display = "block";
     }
 
-    // Animasi hasil
-    hasilUmur.classList.remove("animate-hasil");
-    void hasilUmur.offsetWidth;
-    hasilUmur.classList.add("animate-hasil");
+    // Reset semua class animasi hasil
+    hasilUmur.classList.remove("animate-hasil", "animate-hasil-pertama");
+    void hasilUmur.offsetWidth; // Trigger reflow
 
-    // Jalankan animasi hanya sekali
     if (!sudahAnimasi) {
         formBox.classList.add("animate-box");
+        hasilUmur.classList.add("animate-hasil-pertama");
         sudahAnimasi = true;
+    } else {
+        hasilUmur.classList.add("animate-hasil");
     }
 }

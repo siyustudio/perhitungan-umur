@@ -90,6 +90,12 @@ body {
   animation: fadeUp 0.3s ease-out;
 }
 
+/* Hasil ikut animasi box (sekali) */
+.animate-hasil-pertama {
+  animation: slideFade 0.6s ease forwards;
+}
+
+
 /* Hilangkan spinner input number */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
